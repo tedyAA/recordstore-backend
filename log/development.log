@@ -5638,3 +5638,787 @@ Processing by Rails::InfoController#routes as */*
 Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 803)
 
 
+Started GET "/" for 127.0.0.1 at 2022-05-10 13:37:17 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/home_controller.rb:5:in `index'
+Completed 500 Internal Server Error in 32ms (Views: 9.3ms | ActiveRecord: 0.9ms | Allocations: 12219)
+
+
+  
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  
+app/controllers/home_controller.rb:6:in `index'
+Started GET "/" for 127.0.0.1 at 2022-05-10 13:37:44 +0300
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/home_controller.rb:5:in `index'
+Completed 200 OK in 22ms (Views: 6.7ms | ActiveRecord: 0.9ms | Allocations: 12412)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:39:33 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users/1" for 127.0.0.1 at 2022-05-10 13:39:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users/1"):
+  
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:41:15 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+Completed 200 OK in 39ms (Views: 12.6ms | ActiveRecord: 1.1ms | Allocations: 11626)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:41:42 +0300
+Processing by Api::V1::UsersController#index as HTML
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+Completed 200 OK in 16ms (Views: 9.3ms | ActiveRecord: 1.6ms | Allocations: 7360)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:50:53 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 21ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:51:10 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+Completed 200 OK in 29ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 11626)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:55:26 +0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 12ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 13:55:46 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 232ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 5843)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:56:14 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 13:56:36 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 206ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1066)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:56:44 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 119)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:57:10 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 117)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:57:39 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 14ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:57:40 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 13:57:46 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 236ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 5843)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 13:57:56 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:03:00 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "users_roles" ON "users_roles"."user_id" = "users"."id" INNER JOIN "roles" ON "roles"."id" = "users_roles"."role_id" WHERE (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+Completed 200 OK in 39ms (Views: 19.8ms | ActiveRecord: 2.1ms | Allocations: 14578)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:05:55 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 14ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:05:59 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 236ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 5840)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:06:11 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:06:57 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 22ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:06:58 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:03 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 121)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:07:10 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 243ms (Views: 0.8ms | ActiveRecord: 0.8ms | Allocations: 5837)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:17 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:31 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 18ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6024)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:32 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 135)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:35 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 121)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:07:40 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 224ms (Views: 1.5ms | ActiveRecord: 0.6ms | Allocations: 5837)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:07:47 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:08:04 +0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 15ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 5971)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:08:17 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 134)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:08:21 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 120)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:08:32 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 118)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:09:43 +0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 12ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 6029)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:09:45 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 238ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 5839)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:09:53 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 163)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:11:03 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 230ms (Views: 1.6ms | ActiveRecord: 1.1ms | Allocations: 11910)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:11:10 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 368)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 14:11:24 +0300
+Processing by Api::V1::RecordsController#index as */*
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 439)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 14:11:32 +0300
+Processing by Api::V1::RecordsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.9ms | Allocations: 8381)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:11:37 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 177)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:11:56 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 117)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:12:39 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 261ms (Views: 0.7ms | ActiveRecord: 0.7ms | Allocations: 11911)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 14:12:45 +0300
+Processing by Api::V1::RecordsController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.5ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 24ms (Views: 9.9ms | ActiveRecord: 1.3ms | Allocations: 8601)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:12:51 +0300
+  
+Zeitwerk::NameError (expected file D:/ruby/recordstore-backend/app/controllers/api/v1/users_controller.rb to define constant Api::V1::UsersController, but didn't
+
+      raise Zeitwerk::NameError.new("expected file #{file} to define constant #{cpath}, but didn't", cref.last)
+      ^^^^^):
+  
+zeitwerk (2.5.4) lib/zeitwerk/loader/callbacks.rb:25:in `on_file_autoloaded'
+zeitwerk (2.5.4) lib/zeitwerk/kernel.rb:28:in `require'
+activesupport (7.0.2.4) lib/active_support/inflector/methods.rb:280:in `const_get'
+activesupport (7.0.2.4) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.2.4) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.0.2.4) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.0.2.4) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.4) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (7.0.2.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.2.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:13:38 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 244ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 11911)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:13:46 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+Completed 200 OK in 19ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4107)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:14:00 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 171)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:14:16 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1059)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 14:14:44 +0300
+Processing by Api::V1::RecordsController#index as */*
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 538)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 14:14:54 +0300
+Processing by Api::V1::RecordsController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.6ms | Allocations: 5584)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:14:59 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1126)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:15:28 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 245ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 11912)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:15:35 +0300
+  
+Zeitwerk::NameError (expected file D:/ruby/recordstore-backend/app/controllers/api/v1/users_controller.rb to define constant Api::V1::UsersController, but didn't
+
+      raise Zeitwerk::NameError.new("expected file #{file} to define constant #{cpath}, but didn't", cref.last)
+      ^^^^^):
+  
+zeitwerk (2.5.4) lib/zeitwerk/loader/callbacks.rb:25:in `on_file_autoloaded'
+zeitwerk (2.5.4) lib/zeitwerk/kernel.rb:28:in `require'
+activesupport (7.0.2.4) lib/active_support/inflector/methods.rb:280:in `const_get'
+activesupport (7.0.2.4) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (7.0.2.4) lib/active_support/core_ext/string/inflections.rb:74:in `constantize'
+actionpack (7.0.2.4) lib/action_dispatch/http/request.rb:90:in `controller_class_for'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:95:in `action_encoding_template'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:83:in `encode'
+actionpack (7.0.2.4) lib/action_dispatch/request/utils.rb:45:in `set_binary_encoding'
+actionpack (7.0.2.4) lib/action_dispatch/http/parameters.rb:68:in `path_parameters='
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:48:in `block in serve'
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.2.4) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.2.4) lib/action_dispatch/routing/route_set.rb:850:in `call'
+rack (2.2.3) lib/rack/etag.rb:27:in `call'
+rack (2.2.3) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.3) lib/rack/head.rb:12:in `call'
+activerecord (7.0.2.4) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.2.4) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.2.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (7.0.2.4) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.2.4) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.2.4) lib/rails/rack/logger.rb:25:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.2.4) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (7.0.2.4) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:15:58 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 260ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 11915)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:16:06 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:11:in `index'
+Completed 200 OK in 21ms (Views: 10.1ms | ActiveRecord: 0.9ms | Allocations: 8597)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:16:32 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 266ms (Views: 1.7ms | ActiveRecord: 1.2ms | Allocations: 11911)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:16:39 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 5973)
+
+
+  
+NoMethodError (undefined method `role' for #<User id: 3, email: "123456", password_digest: [FILTERED], created_at: "2022-04-29 15:22:15.183366000 +0000", updated_at: "2022-04-29 15:22:15.183366000 +0000">
+Did you mean?  roles):
+  
+app/controllers/api/v1/users_controller.rb:9:in `index'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:17:08 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 259ms (Views: 1.9ms | ActiveRecord: 1.4ms | Allocations: 11915)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:17:15 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 20ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 9871)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:54:17 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 231ms (Views: 1.7ms | ActiveRecord: 1.0ms | Allocations: 11913)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:54:24 +0300
+  
+SyntaxError (D:/ruby/recordstore-backend/app/controllers/api/v1/users_controller.rb:57: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/api/v1/users_controller.rb:57: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/api/v1/users_controller.rb:57: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:55:21 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 273ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 11912)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:55:28 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = SELECT "records".* FROM "records" WHERE "records"."user_id" = 3) AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.7ms | Allocations: 9627)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "SELECT": syntax error):
+  
+app/controllers/api/v1/users_controller.rb:9:in `index'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:55:54 +0300
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 270ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 11911)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:56:01 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = SELECT "records".* FROM "records" WHERE "records"."user_id" = 3) AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 1.6ms | Allocations: 9627)
+
+
+  
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "SELECT": syntax error):
+  
+app/controllers/api/v1/users_controller.rb:9:in `index'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:56:29 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 247ms (Views: 0.7ms | ActiveRecord: 1.0ms | Allocations: 11912)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:56:37 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.4ms | Allocations: 3804)
+
+
+  
+NameError (undefined local variable or method `object' for #<Api::V1::UsersController:0x00000000009f10>
+
+          @user = current_user.has_role?(:admin, object) ? ['update'] : []
+                                                 ^^^^^^
+Did you mean?  object_id):
+  
+app/controllers/api/v1/users_controller.rb:9:in `index'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:56:59 +0300
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 248ms (Views: 2.2ms | ActiveRecord: 0.9ms | Allocations: 11912)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:57:05 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 26ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 9871)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:57:20 +0300
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 238ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 11916)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:57:27 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 24ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 9871)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:57:54 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'sdfsdf') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 9996)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:59:17 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 5ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1050)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:59:19 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 216ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 11094)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:59:25 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 392)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 14:59:43 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 257ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 11913)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 14:59:50 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 623)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 15:00:13 +0300
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 245ms (Views: 0.6ms | ActiveRecord: 1.6ms | Allocations: 11915)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 15:00:20 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 648)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 15:01:44 +0300
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 227ms (Views: 1.4ms | ActiveRecord: 0.7ms | Allocations: 11911)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 15:01:50 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 22ms (Views: 0.4ms | ActiveRecord: 1.0ms | Allocations: 10152)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 15:02:55 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms | Allocations: 485)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 15:02:59 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 250ms (Views: 1.4ms | ActiveRecord: 0.9ms | Allocations: 11362)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-10 15:03:06 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:10:in `index'
+Completed 200 OK in 32ms (Views: 6.2ms | ActiveRecord: 1.8ms | Allocations: 12019)
+
+
