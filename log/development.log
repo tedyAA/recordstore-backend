@@ -5241,3 +5241,400 @@ Processing by Api::V1::ArtistsController#index as HTML
 Completed 200 OK in 6ms (Views: 5.9ms | ActiveRecord: 0.1ms | Allocations: 2322)
 
 
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ (erb):14:in `migration_template'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to RolifyCreateRoles (20220510092919)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE TABLE "roles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "resource_type" varchar, "resource_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_roles_on_resource" ON "roles" ("resource_type", "resource_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users_roles" ("user_id" integer, "role_id" integer)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_roles_on_user_id" ON "users_roles" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_roles_on_role_id" ON "users_roles" ("role_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_roles_on_name" ON "roles" ("name")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_roles_on_name_and_resource_type_and_resource_id" ON "roles" ("name", "resource_type", "resource_id")[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "index_users_roles_on_user_id_and_role_id" ON "users_roles" ("user_id", "role_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220510092919"]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = ? AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT ?[0m  [["name", "admin"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mRole Create (0.6ms)[0m  [1m[32mINSERT INTO "roles" ("name", "resource_type", "resource_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "admin"], ["resource_type", nil], ["resource_id", nil], ["created_at", "2022-05-10 09:32:48.280429"], ["updated_at", "2022-05-10 09:32:48.280429"]]
+  [1m[36mTRANSACTION (9.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mRole Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND "roles"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND "roles"."id" = ? LIMIT ?[0m  [["user_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser::HABTM_Roles Create (0.5ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES (?, ?)[0m  [["user_id", 1], ["role_id", 1]]
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:35:18 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"ee", "password"=>"[FILTERED]", "signin"=>{"email"=>"ee", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ee"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 401 Unauthorized in 294ms (Views: 1.9ms | ActiveRecord: 0.8ms | Allocations: 11020)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:35:23 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"ee", "password"=>"[FILTERED]", "signin"=>{"email"=>"ee", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "ee"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 401 Unauthorized in 265ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 698)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:35:34 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 269ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 1477)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:35:34 +0300
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:35:34 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 14ms (Views: 6.7ms | ActiveRecord: 0.6ms | Allocations: 5190)
+
+
+Processing by Api::V1::RecordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 33ms (Views: 7.5ms | ActiveRecord: 1.2ms | Allocations: 8918)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:35:34 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.2ms | Allocations: 2412)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+Started DELETE "/signin" for 127.0.0.1 at 2022-05-10 12:38:46 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#destroy as HTML
+Completed 401 Unauthorized in 4ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1038)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:38:50 +0300
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:38:50 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+Processing by Api::V1::RecordsController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 285)
+
+
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 49ms (Views: 10.3ms | ActiveRecord: 1.2ms | Allocations: 10716)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:38:50 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 2408)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:39:01 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 222ms (Views: 1.4ms | ActiveRecord: 1.1ms | Allocations: 7062)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:39:01 +0300
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:01 +0300
+Processing by Api::V1::RecordsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Processing by Api::V1::ArtistsController#index as HTML
+Completed 200 OK in 21ms (Views: 9.0ms | ActiveRecord: 0.7ms | Allocations: 8892)
+
+
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 12ms (Views: 11.2ms | ActiveRecord: 0.9ms | Allocations: 4650)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:01 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.1ms | Allocations: 2375)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:39:38 +0300
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:38 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::RecordsController#index as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 476)
+
+
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 29ms (Views: 11.7ms | ActiveRecord: 1.4ms | Allocations: 9230)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:38 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.2ms | Allocations: 2408)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:39:46 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 243ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 7419)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:39:46 +0300
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:46 +0300
+Processing by Api::V1::RecordsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+  [1m[36mArtist Load (5.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 53ms (Views: 47.3ms | ActiveRecord: 5.7ms | Allocations: 4301)
+
+
+Completed 200 OK in 52ms (Views: 34.0ms | ActiveRecord: 1.0ms | Allocations: 9111)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:39:47 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 2375)
+
+
+Started DELETE "/signin" for 127.0.0.1 at 2022-05-10 12:40:51 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#destroy as HTML
+Completed 401 Unauthorized in 18ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1036)
+
+
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:40:55 +0300
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:40:55 +0300
+Processing by Api::V1::RecordsController#index as HTML
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 283)
+
+
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.3ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 22ms (Views: 6.5ms | ActiveRecord: 0.8ms | Allocations: 9017)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:40:55 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 2408)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 12:41:02 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 231ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 7065)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:41:03 +0300
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-10 12:41:03 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 2419)
+
+
+Processing by Api::V1::RecordsController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.2ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 27ms (Views: 12.1ms | ActiveRecord: 0.9ms | Allocations: 8511)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 12:41:03 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.1ms | Allocations: 2412)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."name" = ? AND "roles"."resource_type" IS NULL AND "roles"."resource_id" IS NULL ORDER BY "roles"."id" ASC LIMIT ?[0m  [["name", "admin"], ["LIMIT", 1]]
+  [1m[36mRole Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND "roles"."id" = ? LIMIT ?[0m  [["user_id", 3], ["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND "roles"."id" = ? LIMIT ?[0m  [["user_id", 3], ["id", 1], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser::HABTM_Roles Create (0.5ms)[0m  [1m[32mINSERT INTO "users_roles" ("user_id", "role_id") VALUES (?, ?)[0m  [["user_id", 3], ["role_id", 1]]
+  [1m[36mTRANSACTION (8.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 2]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+Started GET "/" for 127.0.0.1 at 2022-05-10 13:21:33 +0300
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/home_controller.rb:4:in `index'
+Completed 200 OK in 21ms (Views: 9.9ms | ActiveRecord: 0.7ms | Allocations: 9070)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2022-05-10 13:21:33 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:21:40 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:22:56 +0300
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/artist" for 127.0.0.1 at 2022-05-10 13:23:03 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/artist"):
+  
+Started GET "/artists" for 127.0.0.1 at 2022-05-10 13:23:10 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/artists"):
+  
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-10 13:23:21 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 19ms (Views: 10.1ms | ActiveRecord: 1.1ms | Allocations: 7454)
+
+
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:23:57 +0300
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/user" for 127.0.0.1 at 2022-05-10 13:24:10 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:25:12 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:27:28 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:28:02 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/users" for 127.0.0.1 at 2022-05-10 13:30:25 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+Started GET "/rails/info/routes?path=u" for 127.0.0.1 at 2022-05-10 13:31:20 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"u"}
+Completed 200 OK in 28ms (Views: 0.3ms | Allocations: 4362)
+
+
+Started GET "/rails/info/routes?path=us" for 127.0.0.1 at 2022-05-10 13:31:20 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"us"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 923)
+
+
+Started GET "/rails/info/routes?path=use" for 127.0.0.1 at 2022-05-10 13:31:22 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"use"}
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 912)
+
+
+Started GET "/rails/info/routes?path=user" for 127.0.0.1 at 2022-05-10 13:31:22 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"user"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 912)
+
+
+Started GET "/rails/info/routes?path=use" for 127.0.0.1 at 2022-05-10 13:31:25 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"use"}
+Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 911)
+
+
+Started GET "/rails/info/routes?path=us" for 127.0.0.1 at 2022-05-10 13:31:26 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"us"}
+Completed 200 OK in 1ms (Views: 0.2ms | Allocations: 911)
+
+
+Started GET "/rails/info/routes?path=uset" for 127.0.0.1 at 2022-05-10 13:31:27 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"uset"}
+Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 804)
+
+
+Started GET "/rails/info/routes?path=uset" for 127.0.0.1 at 2022-05-10 13:31:27 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"uset"}
+Completed 200 OK in 1ms (Views: 0.1ms | Allocations: 801)
+
+
+Started GET "/rails/info/routes?path=users" for 127.0.0.1 at 2022-05-10 13:31:28 +0300
+Processing by Rails::InfoController#routes as */*
+  Parameters: {"path"=>"users"}
+Completed 200 OK in 2ms (Views: 0.2ms | Allocations: 803)
+
+
