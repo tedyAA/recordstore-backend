@@ -49,7 +49,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def artist_params
-        params.require(:artist).permit(:name)
+        params.require(:artist).permit(:name, :approved)
       end
     end
   end

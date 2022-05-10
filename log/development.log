@@ -7146,3 +7146,286 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 41ms (Views: 15.3ms | ActiveRecord: 2.2ms | Allocations: 18116)
 
 
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddApprovedToArtists (20220510192448)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mALTER TABLE "artists" ADD "approved" boolean DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20220510192448"]]
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started PATCH "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:25:32 +0300
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"title"=>"fsdfsffs"}, "id"=>"3"}
+Completed 401 Unauthorized in 6ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 1061)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:25:36 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 297ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 10145)
+
+
+Started PATCH "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:25:45 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"title"=>"fsdfsffs"}, "id"=>"3"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :title. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001b9a87ee538>, params: {"artist"=>{"title"=>"fsdfsffs"}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 4232)
+
+
+Started PATCH "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:25:58 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"title"=>"fsdfsffs", "approved"=>true}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameters: :title, :approved. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001b9a8c2b560>, params: {"artist"=>{"title"=>"fsdfsffs", "approved"=>true}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1152)
+
+
+Started PATCH "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:26:02 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"3"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :approved. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001b9a8d57dd0>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mArtist Update (1.6ms)[0m  [1m[33mUPDATE "artists" SET "name" = ?, "updated_at" = ? WHERE "artists"."id" = ?[0m  [["name", "fsdfsffs"], ["updated_at", "2022-05-10 19:26:02.634936"], ["id", 3]]
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+Completed 200 OK in 20ms (Views: 0.3ms | ActiveRecord: 10.3ms | Allocations: 3196)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:26:07 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :approved. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001b9a9002468>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1160)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:26:23 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameters: :approved, :id. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001b9a9124760>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 1164)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:27:29 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 246ms (Views: 2.1ms | ActiveRecord: 0.8ms | Allocations: 11913)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:27:52 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameters: :approved, :id. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x0000016c39a3f560>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 422 Unprocessable Entity in 19ms (Views: 7.1ms | ActiveRecord: 1.1ms | Allocations: 5638)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:29:06 +0300
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 247ms (Views: 1.4ms | ActiveRecord: 1.0ms | Allocations: 11910)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:29:14 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "id"=>"3"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001f065df2940>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true, "id"=>3}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mArtist Update (0.8ms)[0m  [1m[33mUPDATE "artists" SET "updated_at" = ?, "approved" = ? WHERE "artists"."id" = ?[0m  [["updated_at", "2022-05-10 19:29:14.236157"], ["approved", 1], ["id", 3]]
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+Completed 200 OK in 22ms (Views: 0.7ms | ActiveRecord: 9.5ms | Allocations: 6571)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:29:31 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false, "id"=>3}, "id"=>"3"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001f06661dd18>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false, "id"=>3}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 422 Unprocessable Entity in 6ms (Views: 3.3ms | ActiveRecord: 0.1ms | Allocations: 2432)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:30:13 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false, "id"=>3}, "id"=>"3"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+[31mUnpermitted parameter: :id. Context: { controller: Api::V1::ArtistsController, action: update, request: #<ActionDispatch::Request:0x000001f0668cb880>, params: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false, "id"=>3}, "controller"=>"api/v1/artists", "action"=>"update", "id"=>"3"} }[0m
+Completed 422 Unprocessable Entity in 3ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1429)
+
+
+Started PUT "/api/v1/artists" for 127.0.0.1 at 2022-05-10 22:30:20 +0300
+  
+ActionController::RoutingError (No route matches [PUT] "/api/v1/artists"):
+  
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:30:29 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1085)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:30:38 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 422 Unprocessable Entity in 3ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1326)
+
+
+Started PUT "/api/v1/artists/3" for 127.0.0.1 at 2022-05-10 22:30:52 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"3"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1082)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:30:57 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"4"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mArtist Update (1.6ms)[0m  [1m[33mUPDATE "artists" SET "name" = ?, "updated_at" = ?, "approved" = ? WHERE "artists"."id" = ?[0m  [["name", "fsdfsffs"], ["updated_at", "2022-05-10 19:30:57.822035"], ["approved", 1], ["id", 4]]
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+Completed 200 OK in 27ms (Views: 0.5ms | ActiveRecord: 9.7ms | Allocations: 2781)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:32:02 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>"false"}, "id"=>"4"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 422 Unprocessable Entity in 12ms (Views: 0.5ms | ActiveRecord: 0.1ms | Allocations: 1338)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:32:10 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false}, "id"=>"4"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 422 Unprocessable Entity in 9ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 1325)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:32:48 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>0}, "id"=>"4"}
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 422 Unprocessable Entity in 5ms (Views: 0.9ms | ActiveRecord: 0.4ms | Allocations: 1324)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:33:54 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>"0"}, "id"=>"4"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+Completed 422 Unprocessable Entity in 6ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 1324)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:35:47 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 255ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 11912)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:36:02 +0300
+  
+ArgumentError (Unknown key: :in. Valid keys are: :on, :if, :unless, :prepend. Perhaps you meant to call `validates` instead of `validate`?):
+  
+app/models/artist.rb:5:in `<class:Artist>'
+app/models/artist.rb:1:in `<main>'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:36:20 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 248ms (Views: 0.6ms | ActiveRecord: 1.2ms | Allocations: 11912)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:36:28 +0300
+  
+ArgumentError (Unknown validator: 'InValidator'):
+  
+app/models/artist.rb:5:in `<class:Artist>'
+app/models/artist.rb:1:in `<main>'
+Started POST "/signin" for 127.0.0.1 at 2022-05-10 22:38:52 +0300
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 239ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 11910)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:39:01 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>false}, "id"=>"4"}
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mArtist Update (0.5ms)[0m  [1m[33mUPDATE "artists" SET "updated_at" = ?, "approved" = ? WHERE "artists"."id" = ?[0m  [["updated_at", "2022-05-10 19:39:01.909796"], ["approved", 0], ["id", 4]]
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 9.3ms | Allocations: 6497)
+
+
+Started PUT "/api/v1/artists/4" for 127.0.0.1 at 2022-05-10 22:39:09 +0300
+Processing by Api::V1::ArtistsController#update as */*
+  Parameters: {"artist"=>{"name"=>"fsdfsffs", "approved"=>true}, "id"=>"4"}
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists" WHERE "artists"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/artists_controller.rb:47:in `set_artist'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mArtist Update (1.8ms)[0m  [1m[33mUPDATE "artists" SET "updated_at" = ?, "approved" = ? WHERE "artists"."id" = ?[0m  [["updated_at", "2022-05-10 19:39:09.799831"], ["approved", 1], ["id", 4]]
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:32:in `update'
+Completed 200 OK in 18ms (Views: 0.5ms | ActiveRecord: 9.9ms | Allocations: 2787)
+
+
