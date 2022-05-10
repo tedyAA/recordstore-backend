@@ -2,26 +2,21 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :authorize_access_request!
-      before_action :set_record, only: [:show, :update, :destroy]
 
       # GET /users
       def index
         if current_user.has_role? :admin
-          render json: User.all
+          render json: user_includes
         else
-          puts "Access denied"
+          render json: "Access denied"
         end
       end
+
       private
 
-      # Use callbacks to share common setup or constraints between actions.
-      def set_record
-        @record = current_user.records.find(params[:id])
-      end
-
-      # Only allow a trusted parameter "white list" through.
-      def record_params
-        params.require(:record).permit(:title, :year, :artist_id)
+      def user_includes
+        { records: current_user.records.all,
+          users: User.all }
       end
     end
   end
