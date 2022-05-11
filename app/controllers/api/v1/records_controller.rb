@@ -49,7 +49,7 @@ module Api
 
       # Only allow a trusted parameter "white list" through.
       def record_params
-        params.require(:record).permit(:title, :year, :artist_id)
+        params.require(:record).permit(:title, :year, :artist_id, :image)
       end
     end
   end
