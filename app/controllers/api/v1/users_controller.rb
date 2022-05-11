@@ -13,15 +13,21 @@ module Api
       end
 
       def update
-        if @user.update(user_params)
-          render json: @user
-        else
-          render json: @user.errors, status: :unprocessable_entity
+        if current_user.has_role? :admin
+          if @user.update(user_params)
+            render json: @user
+          else
+            render json: @user.errors, status: :unprocessable_entity
+          end
+          else render json: {success: false}
         end
       end
 
       def destroy
-        @user.destroy
+        if current_user.has_role? :admin
+          @user.destroy
+        else render json: {success: false}
+        end
       end
 
       private

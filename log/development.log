@@ -13347,3 +13347,305 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 80ms (Views: 49.0ms | ActiveRecord: 2.6ms | Allocations: 15106)
 
 
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:37:46 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 219ms (Views: 1.0ms | ActiveRecord: 1.7ms | Allocations: 6235)
+
+
+Started DELETE "/api/v1/users/7" for 127.0.0.1 at 2022-05-11 22:38:02 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 1.2ms | Allocations: 5655)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:38:12 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 262ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 11917)
+
+
+Started DELETE "/api/v1/users/10" for 127.0.0.1 at 2022-05-11 22:38:28 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.1ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+Completed 204 No Content in 55ms (ActiveRecord: 2.4ms | Allocations: 8328)
+
+
+Started DELETE "/signin" for 127.0.0.1 at 2022-05-11 22:39:10 +0300
+Processing by SigninController#destroy as HTML
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 296)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:39:13 +0300
+Processing by Api::V1::UsersController#index as HTML
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 218)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:39:18 +0300
+Processing by SigninController#create as HTML
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 204ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 1160)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:39:18 +0300
+Started GET "/api/v1/records" for 127.0.0.1 at 2022-05-11 22:39:18 +0300
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-11 22:39:18 +0300
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:40:in `is_admin'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2576)
+
+
+Processing by Api::V1::RecordsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRecord Load (0.1ms)[0m  [1m[34mSELECT "records".* FROM "records" WHERE "records"."user_id" = ?[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/records_controller.rb:11:in `index'
+Completed 200 OK in 12ms (Views: 6.8ms | ActiveRecord: 0.8ms | Allocations: 6685)
+
+
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.2ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 34ms (Views: 31.8ms | ActiveRecord: 0.7ms | Allocations: 4676)
+
+
+Started GET "/api/v1/artists" for 127.0.0.1 at 2022-05-11 22:39:18 +0300
+Processing by Api::V1::ArtistsController#index as HTML
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/artists_controller.rb:11:in `index'
+Completed 200 OK in 12ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 1493)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:39:36 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 208ms (Views: 0.4ms | ActiveRecord: 0.1ms | Allocations: 1109)
+
+
+Started DELETE "/api/v1/users/10" for 127.0.0.1 at 2022-05-11 22:39:41 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"10"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 0.4ms | Allocations: 2221)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:39:45 +0300
+Processing by Api::V1::UsersController#index as */*
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 356)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:39:48 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:40:in `is_admin'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 2316)
+
+
+Started DELETE "/api/v1/users/20" for 127.0.0.1 at 2022-05-11 22:40:10 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"20"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 813)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=20):
+  
+app/controllers/api/v1/users_controller.rb:44:in `set_user'
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:40:26 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 203ms (Views: 1.4ms | ActiveRecord: 0.2ms | Allocations: 996)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:40:34 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:36:in `user_includes'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 0.7ms | Allocations: 7910)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:40:54 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 202ms (Views: 1.3ms | ActiveRecord: 0.1ms | Allocations: 1000)
+
+
+Started DELETE "/api/v1/users/7" for 127.0.0.1 at 2022-05-11 22:41:04 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+Completed 204 No Content in 5ms (ActiveRecord: 0.4ms | Allocations: 2107)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:41:33 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:36:in `user_includes'
+  [1m[36mArtist Load (0.4ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 1.1ms | Allocations: 6188)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:41:42 +0300
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"123456", "password"=>"[FILTERED]", "signin"=>{"email"=>"123456", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "123456"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 218ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 1001)
+
+
+Started DELETE "/api/v1/users/7" for 127.0.0.1 at 2022-05-11 22:41:53 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser::HABTM_Roles Delete All (0.1ms)[0m  [1m[31mDELETE FROM "users_roles" WHERE "users_roles"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (0.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 7]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (10.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 204 No Content in 23ms (ActiveRecord: 12.3ms | Allocations: 4770)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:42:03 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:36:in `user_includes'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 16ms (Views: 9.6ms | ActiveRecord: 0.7ms | Allocations: 6052)
+
+
+Started DELETE "/api/v1/users/9" for 127.0.0.1 at 2022-05-11 22:42:15 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:44:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:26:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser::HABTM_Roles Delete All (0.3ms)[0m  [1m[31mDELETE FROM "users_roles" WHERE "users_roles"."user_id" = ?[0m  [["user_id", 9]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mUser Destroy (1.8ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 9]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+  [1m[36mTRANSACTION (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 204 No Content in 25ms (ActiveRecord: 10.8ms | Allocations: 4229)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2022-05-11 22:42:18 +0300
+Processing by Api::V1::UsersController#index as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:8:in `index'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 3]]
+  ↳ app/controllers/api/v1/users_controller.rb:36:in `user_includes'
+  [1m[36mArtist Load (0.1ms)[0m  [1m[34mSELECT "artists".* FROM "artists"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/api/v1/users_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 5.0ms | ActiveRecord: 0.6ms | Allocations: 5914)
+
+
+Started POST "/signin" for 127.0.0.1 at 2022-05-11 22:43:56 +0300
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SigninController#create as */*
+  Parameters: {"email"=>"1234", "password"=>"[FILTERED]", "signin"=>{"email"=>"1234", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "1234"], ["LIMIT", 1]]
+  ↳ app/controllers/signin_controller.rb:5:in `create'
+Completed 200 OK in 259ms (Views: 1.8ms | ActiveRecord: 0.6ms | Allocations: 11914)
+
+
+Started DELETE "/api/v1/users/11" for 127.0.0.1 at 2022-05-11 22:44:14 +0300
+Processing by Api::V1::UsersController#destroy as */*
+  Parameters: {"id"=>"11"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/users_controller.rb:46:in `set_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8:in `current_user'
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT "roles".* FROM "roles" INNER JOIN "users_roles" ON "roles"."id" = "users_roles"."role_id" WHERE "users_roles"."user_id" = ? AND (((roles.name = 'admin') AND (roles.resource_type IS NULL) AND (roles.resource_id IS NULL)))[0m  [["user_id", 13]]
+  ↳ app/controllers/api/v1/users_controller.rb:27:in `destroy'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 2.3ms | Allocations: 8443)
+
+
