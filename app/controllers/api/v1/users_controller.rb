@@ -3,6 +3,7 @@ module Api
     class UsersController < ApplicationController
       before_action :authorize_access_request!
       before_action :set_user, only: [:show, :update, :destroy]
+
       # GET /users
       def index
         if current_user.has_role? :admin
@@ -35,7 +36,8 @@ module Api
       def user_includes
         { artists: Artist.all,
           users: User.all,
-          isAdmin: (current_user.has_role? :admin) }
+          isAdmin: is_admin,
+          user: current_user}
       end
 
       def is_admin
